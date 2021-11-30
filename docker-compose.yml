@@ -1,0 +1,26 @@
+version: "2"
+
+services:
+
+  ghost:
+    container_name: ${CONTAINER_GHOST_NAME}
+    image: ghost:4.24-alpine
+    volumes:
+      - ${GHOST_APPS}:/var/lib/ghost/content/apps
+      - ${GHOST_DATA}:/var/lib/ghost/content/data
+      - ${GHOST_IMAGES}:/var/lib/ghost/content/images
+      - ${GHOST_THEMES}:/var/lib/ghost/content/themes
+    environment:
+      - url=${GHOST_URL}
+      - NODE_ENV=${STATUS}
+      - VIRTUAL_HOST=${DOMAINS}
+      - VIRTUAL_PORT=${PORT}
+      - LETSENCRYPT_HOST=${DOMAINS}
+      - LETSENCRYPT_EMAIL=${LETSENCRYPT_EMAIL}
+    restart: unless-stopped
+
+networks:
+  default:
+    external:
+      name: ${NETWORK}
+                       
