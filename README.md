@@ -16,7 +16,7 @@ git clone https://github.com/nightconcept/ghost.git ghost
 3. Startup container
 ```bash
 sudo docker-compose start
-
+```
 
 ## Update
 
