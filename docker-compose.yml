@@ -1,10 +1,10 @@
-version: "2"
+version: "3"
 
 services:
 
   ghost:
     container_name: ${CONTAINER_GHOST_NAME}
-    image: ghost:4.22.4-alpine
+    image: ghost:4.36.1-alpine
     volumes:
       - ${GHOST_APPS}:/var/lib/ghost/content/apps
       - ${GHOST_DATA}:/var/lib/ghost/content/data
@@ -21,6 +21,5 @@ services:
 
 networks:
   default:
-    external:
-      name: ${NETWORK}
+    name: ${NETWORK}
                        
